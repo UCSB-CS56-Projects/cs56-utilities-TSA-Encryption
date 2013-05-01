@@ -1,9 +1,9 @@
 <project default="compile">
   <property environment="env"/>
   <!-- load the environment variables -->
-  <property name="webRoot" value="${env.HOME}/public_html/cs56/S11/issues"/>
-  <property name="webBaseUrl" value="http://www.cs.ucsb.edu/~${env.USER}/cs56/S11/issues"/>
-  <property name="projectName" value="0000333"/>
+  <property name="webRoot" value="${env.HOME}/public_html/cs56/projects/utilities"/>
+  <property name="webBaseUrl" value="http://www.cs.ucsb.edu/~${env.USER}/cs56/projects/utilities"/>
+  <property name="projectName" value="TSA_Encryption"/>
   <property name="javadocDest" value="${webRoot}/${projectName}/javadoc"/>
   <property name="javadocURL" value="${webBaseUrl}/${projectName}/javadoc"/>
   
