@@ -140,7 +140,7 @@
        </classpath>
 
        <batchtest fork="yes">
-          <fileset dir="src/edu/ucsb/cs56/S11/issues/0000333/">
+          <fileset dir="src/edu/ucsb/cs56/projects/utilities/TSA_Encryption">
             <!-- this will pick up every class with a name ending in Test -->
             <include name="*Test.java"/>
           </fileset>
