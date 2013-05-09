@@ -68,13 +68,13 @@
     <junit haltonerror="no" haltonfailure="no">
        <classpath>
          <pathelement location="lib/junit-4.8.2.jar"/>
-         <pathelement location="build/edu/ucsb/cs56/projects/utilities/TSA_Encryption"/>
+         <pathelement location="build/"/>
        </classpath>
 
        <batchtest fork="yes">
-          <fileset dir="src/edu/ucsb/cs56/projects/utilities/TSA_Encryption">
+          <fileset dir="src">
             <!-- this will pick up every class with a name ending in Test -->
-            <include name="*Test.java"/>
+            <include name="**/*Test.java"/>
           </fileset>
        </batchtest>
 
