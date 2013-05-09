@@ -4,6 +4,7 @@ package edu.ucsb.cs56.projects.utilities.TSA_Encryption;
 Cryptography class. Only 2 methods: the constructor, and encrypt. 
 
 @author Callum Steele, Miranda Aperghis, Trevor Adelman
+@version CS56 S13, 05/09/2013
 
  */
 
@@ -17,11 +18,12 @@ public class Cryptography{
        @return nothing (void function)
      */
 
-    public void Cryptography() {}
+    public Cryptography() {}
 
     /**
-       @return a long with the resulting long value
-       @param an int[] (list on integers) that gets iterated through throughout the function, the integers must be greater than or equal to 1 and less than or equal to 1000, and the length of the list must be greater than or equal to 2 and less than or equal to 50.
+       The encrypt function receives an array of integers and transforms it into a long value.
+       @return a long with the resulting value
+       @param numlist an int[] (list on integers) that gets iterated through throughout the function, the integers must be greater than or equal to 1 and less than or equal to 1000, and the length of the list must be greater than or equal to 2 and less than or equal to 50.
      */
 
     public long encrypt(int[] numList) {
@@ -52,6 +54,11 @@ public class Cryptography{
 
 	return totalCheck;
     }
+
+    /**
+       Sets up a Cryptography object and uses it to encrypt an int array of {1,2,3}, outputting the result
+       @param args the command line arguments
+     */
 
     public static void main(String[] args){
 	Cryptography c1 = new Cryptography();
