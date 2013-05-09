@@ -31,7 +31,8 @@ public class Cryptography{
 	for (int r=0; r < numList.length; r++){
 	    if (numList[r] < 1 || numList[r] > 1000){
 		System.out.println("Number Error; Integer x must follow: 1 <= x <= 1000");
-	    return totalCheck;}
+		return totalCheck;
+	    }
 	}
 
 	if (numList.length > 50 || numList.length < 2){
