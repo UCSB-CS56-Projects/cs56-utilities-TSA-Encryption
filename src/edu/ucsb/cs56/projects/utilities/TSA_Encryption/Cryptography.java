@@ -3,7 +3,7 @@ package edu.ucsb.cs56.projects.utilities.TSA_Encryption;
 /**
 Cryptography class. Only 2 methods: the constructor, and encrypt. 
 
-@author Callum Steele, Miranda Aperghis
+@author Callum Steele, Miranda Aperghis, Trevor Adelman
 
  */
 
@@ -21,12 +21,11 @@ public class Cryptography{
 
     /**
        @return a long with the resulting long value
-       @param an int[] (list on integers) that gets iterated through 
-              throughout the function
+       @param an int[] (list on integers) that gets iterated through throughout the function
      */
 
     public long encrypt(int[] numList) {
-    
+
 	for (int r=0; r < numList.length; r++){
 	    if (numList[r] < 1 || numList[r] > 1000){
 		System.out.println("Number Error; Integer x must follow: 1 <= x <= 1000");
@@ -48,22 +47,12 @@ public class Cryptography{
 		if (total > totalCheck){
 		    totalCheck = total;}
 	    }
-	    //    System.out.println(total);
 	    numList[i]--;
-		}
-
-	//System.out.println(totalCheck);
+	 }
 
 	return totalCheck;
-
-
-
     }
     
-
-
-
-
     public static void main(String[] args){
 	Cryptography c1 = new Cryptography();
 	int[] ex1 = {1,2,3};
@@ -77,13 +66,11 @@ public class Cryptography{
 	System.out.println("\n");
 	System.out.println("\n");
 	
-
 	Cryptography c3 = new Cryptography();	
 	int[] ex3 = {1000,999,998,997,996,995};
 	c3.encrypt(ex3);
 	System.out.println("\n");
 	System.out.println("\n");
-	
 	
 	Cryptography c4 = new Cryptography();
 	int[] ex4 = {4,4,4,4,4,4,4,4,4};
@@ -91,24 +78,16 @@ public class Cryptography{
 	System.out.println("\n");
 	System.out.println("\n");
 
-
 	Cryptography c5 = new Cryptography();
 	int[] ex5 = {1,1,1,1};
 	c5.encrypt(ex5);
 	System.out.println("\n");
 	System.out.println("\n");
 
-
 	Cryptography c6 = new Cryptography();
 	int[] ex6 = {4,12,45,5,42,3,11,8,98};
 	c6.encrypt(ex6);
 	System.out.println("\n");
 	System.out.println("\n");
-	
-	
-
     }
-
-    
-
 }
