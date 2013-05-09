@@ -15,7 +15,6 @@ public class Cryptography{
 
     /**
        basic class constructor
-       @return nothing (void function)
      */
 
     public Cryptography() {}
