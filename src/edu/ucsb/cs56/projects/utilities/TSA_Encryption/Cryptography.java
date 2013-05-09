@@ -3,28 +3,21 @@ package edu.ucsb.cs56.projects.utilities.TSA_Encryption;
 /**
 Cryptography class. Only 2 methods: the constructor, and encrypt. 
 
-@author Trevor Adelman
-
+@author Callum Steele, Miranda Aperghis
 
  */
 
-
-
 public class Cryptography{
+
+    long totalCheck = 0;
+    long total = 1;
 
     /**
        basic class constructor
        @return nothing (void function)
      */
 
-    public void Cryptography(){}
-
-
-
-
-    long totalCheck = 0;
-    long total = 1;
-
+    public void Cryptography() {}
 
     /**
        @return a long with the resulting long value
