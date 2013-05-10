@@ -75,5 +75,26 @@ public class CryptographyTest {
 		Cryptography ex7 = new Cryptography();
 		assertEquals(0,ex7.encrypt(ex7num), tolerance);
 	}
+
+	/**
+ 	*Test for length of list less than 2
+ 	*/ 
+	@Test
+	public void testLengthLessThan2(){
+		int[] ex8num = {5};
+		Cryptography ex8 = new Cryptography();
+		assertEquals(0,ex8.encrypt(ex8num), tolerance);
+	}
+
+	/**
+ 	*Test for length of list greater than 50
+	*/
+	@Test
+	public void testLengthGreaterThan50(){
+		int[] ex9num = new int[51];
+		for(int i=0; i<ex9num.length; i++) ex9num[i]=5;
+		Cryptography ex9 = new Cryptography();
+		assertEquals(0,ex9.encrypt(ex9num), tolerance);
+	} 
 }
 
