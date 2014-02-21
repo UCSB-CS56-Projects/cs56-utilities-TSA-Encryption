@@ -204,5 +204,7 @@ public class CryptographyTest {
 	Cryptography ex6 = new Cryptography();
 	assertEquals(0,ex6.encrypt3(ex6num), tolerance);
     }
+
+
 }
 
