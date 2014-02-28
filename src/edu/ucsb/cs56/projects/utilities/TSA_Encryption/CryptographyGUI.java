@@ -10,7 +10,7 @@ import java.awt.Color.*;
 Cryptography GUI only main method
 
 @author Gary Mak, Rishabh Jha
-@version CS56 W14
+@version CS56 W14 02/28/2014
 
 **/
 

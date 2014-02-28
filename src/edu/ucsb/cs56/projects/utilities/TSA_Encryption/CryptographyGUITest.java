@@ -4,6 +4,9 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 /** test class for CryptographyGUI
+@author Gary Mak
+@author Rishabh Jha
+@version CS56 W14 02/28/2014
 
 @author Trevor Adelman
 @author Miranda Apergis
