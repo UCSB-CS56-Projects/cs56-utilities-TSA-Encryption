@@ -17,6 +17,7 @@ public class CryptographyGUI{
     JFrame frame;
     JTextField textField;
 	
+
     /**
        The encrypt function receives an array of integers and transforms it into a long value.
        @return a long with the resulting value
@@ -363,12 +364,15 @@ public class CryptographyGUI{
 	
 
 
+
     public static void main(String[] args){
 	CryptographyGUI gui = new CryptographyGUI();
 
 	gui.go();
 
     }//end of main
+
+
 
     public void go(){
 	frame = new JFrame();
@@ -377,12 +381,10 @@ public class CryptographyGUI{
 	frame.setSize(640,480);
 	frame.setTitle("Encryption");
 	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	frame.setVisible(true);
 
 	JPanel title = new JPanel();
 	JLabel pageTitle = new JLabel("Choose an encryption method");
 	title.add(pageTitle);
-	
 	
 	JButton button1 = new JButton("method 1");
 	button1.addActionListener(new Method1Listener());
@@ -410,9 +412,10 @@ public class CryptographyGUI{
 	allPanel.add(panel2);
 	allPanel.add(panel3);
 	
-
 	frame.getContentPane().add(allPanel);
 
+
+	frame.setVisible(true);
 	}//end of go
 
 
