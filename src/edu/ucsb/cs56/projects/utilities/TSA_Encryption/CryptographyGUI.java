@@ -25,7 +25,7 @@ public class CryptographyGUI{
        @param numlist an int[] (list on integers) that gets iterated through throughout the function, the integers must be greater than or equal to 1 and less than or equal to 1000, and the length of the list must be greater than or equal to 2 and less than or equal to 50.
      */
     
-	public static long encrypt1(int[] numList) {
+	public long encrypt1(int[] numList) {
 	    long totalCheck = 0;
 	    long total = 1;
 	    
@@ -65,7 +65,7 @@ public class CryptographyGUI{
        @param numlist an int[] (list on integers) that gets iterated through throughout the function, the integers must be greater than or equal to -50 and less than or equal to 50, and the length of the list must be greater than or equal to 2 and less than or equal to 10.
      */
 	
-	public static long encrypt2(int[] numList){
+	public long encrypt2(int[] numList){
 	    long totalCheck = 0;
 	    long total = 1;
 	    
@@ -98,7 +98,7 @@ public class CryptographyGUI{
        @return a long with the resulting value
        @param numlist an int[] (list on integers) that gets iterated through throughout the function, the integers must be greater than or equal to -1000 and less than or equal to 1000, and the length of the list must be greater than or equal to 2 and less than or equal to 10.
      */
-	public static long encrypt3(int[] numList){
+	public long encrypt3(int[] numList){
 	    long totalCheck = 0;
 	    long total = 1;
 
