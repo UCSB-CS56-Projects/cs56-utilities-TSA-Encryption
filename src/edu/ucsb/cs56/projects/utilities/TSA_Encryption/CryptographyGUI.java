@@ -19,6 +19,8 @@ public class CryptographyGUI{
     JTextField textField;
     JPanel panel;
     JPanel encryptedPanel;
+    JLabel encryptedLabel;
+
     /**
        The encrypt function receives an array of integers and transforms it into a long value.
        @return a long with the resulting value
@@ -261,7 +263,7 @@ public class CryptographyGUI{
 		int[] intArray = stringToIntArray(input);
 		long encryptedValue = encrypt1(intArray);
 
-		JLabel encryptedLabel = new JLabel(Long.toString(encryptedValue));
+		encryptedLabel.setText(Long.toString(encryptedValue));
 		encryptedPanel.add(encryptedLabel);
 
 		panel.add(encryptedPanel);
@@ -282,7 +284,7 @@ public class CryptographyGUI{
 		int[] intArray = stringToIntArray(input);
 		long encryptedValue = encrypt2(intArray);
 
-		JLabel encryptedLabel = new JLabel(Long.toString(encryptedValue));
+		encryptedLabel.setText(Long.toString(encryptedValue));
 		encryptedPanel.add(encryptedLabel);
 		
 		panel.add(encryptedPanel);
@@ -303,7 +305,7 @@ public class CryptographyGUI{
 		int[] intArray = stringToIntArray(input);
 		long encryptedValue = encrypt3(intArray);
 
-		JLabel encryptedLabel = new JLabel(Long.toString(encryptedValue));
+		encryptedLabel.setText(Long.toString(encryptedValue));
 		encryptedPanel.add(encryptedLabel);
 
 		panel.add(encryptedPanel);
@@ -365,6 +367,7 @@ public class CryptographyGUI{
 	//for later use
 	textField = new JTextField(20);
 	encryptedPanel = new JPanel();
+	encryptedLabel = new JLabel();
 
 	frame.setSize(640,480);
 	frame.setTitle("Encryption");
@@ -403,7 +406,6 @@ public class CryptographyGUI{
 
 	frame.setVisible(true);
 	}//end of go
-
 
 
 
