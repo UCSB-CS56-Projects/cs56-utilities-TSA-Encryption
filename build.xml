@@ -18,7 +18,7 @@
   </target>
   
   <target name="run" depends="compile" description="run my encryption functions">
-    <java classname="edu.ucsb.cs56.projects.utilities.TSA_Encryption.Cryptography" classpath="build" fork="true"/>
+    <java classname="edu.ucsb.cs56.projects.utilities.TSA_Encryption.CryptographyGUI" classpath="build" fork="true"/>
   </target>
   
   <target name="clean" description="delete unnecessary files and directories">
