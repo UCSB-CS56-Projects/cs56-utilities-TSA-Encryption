@@ -1,16 +1,3 @@
-cs56-utilities-TSA-Encryption
-=============================
-
-TopCoder Security Agency (TSA, established today) has just invented a new encryption system! This encryption system takes as its input a list of numbers to encrypt and outputs a single long. 
-
-
-
-
-
-
-
-
-
 # cs56-utilities-TSA-Encryption
 
 This is a encryptor application that currently only takes in arrays of integers. It is created in such a way so that it could be appended to in decent fashion.
