@@ -14,6 +14,7 @@ public class EncryptMethods{
      */
     
 	public long encrypt1(int[] numList) {
+
 	    long totalCheck = 0;
 	    long total = 1;
 	    
@@ -56,6 +57,7 @@ public class EncryptMethods{
      */
 	
 	public long encrypt2(int[] numList){
+
 	    long totalCheck = 0;
 	    long total = 1;
 	    
@@ -88,6 +90,7 @@ public class EncryptMethods{
        @param numlist an int[] (list on integers) that gets iterated through throughout the function, the integers must be greater than or equal to -1000 and less than or equal to 1000, and the length of the list must be greater than or equal to 2 and less than or equal to 10.
      */
 	public long encrypt3(int[] numList){
+		
 	    long totalCheck = 0;
 	    long total = 1;
 

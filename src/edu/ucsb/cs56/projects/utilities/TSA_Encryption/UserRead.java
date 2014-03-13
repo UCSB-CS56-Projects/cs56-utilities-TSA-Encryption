@@ -7,12 +7,12 @@ import java.awt.Color.*;
 
 public class UserRead{
     public int[] stringToIntArray(String input){
-		String[] StringArray = input.split(",");
+		String[] stringArray = input.split(",");
 
-		int[] intArray = new int[StringArray.length];
+		int[] intArray = new int[stringArray.length];
 
 		int i = 0;
-		for(String intString:StringArray)
+		for(String intString:stringArray)
 	  	  {
 			 int x = Integer.parseInt(intString);
 			 intArray[i] = x;

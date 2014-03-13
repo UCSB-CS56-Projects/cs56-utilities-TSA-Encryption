@@ -7,7 +7,7 @@ This is a encryptor application that currently only takes in arrays of integers.
 
 ## Documentation
 
-* The code for reading in the file is located in the `UserRead` class which currently holds only one method that reads the input into an array, as shown below.
+* The code for reading in the file is located in the `UserRead` class which currently holds only one method that reads the input into an integer array, as shown below.
 
 ```java
     public int[] stringToIntArray(String input){
@@ -26,7 +26,7 @@ This is a encryptor application that currently only takes in arrays of integers.
 	}
 ```
 * The `EncryptMethods` class contains all of our encryption methods that will be used.
-* The `CryptographyGUI` class contains the screen for our program.
+* The `CryptographyGUI` class contains all of the classes needed for the screen of our program.
 
 ## How to run 
-To start the game, use `ant run`. 
+To start the application, use `ant run`. 
