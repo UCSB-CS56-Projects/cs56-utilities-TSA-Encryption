@@ -7,7 +7,7 @@ import java.awt.Color.*;
 
 
 /**
-Cryptography GUI only main method
+Cryptography GUI
 
 @author Gary Mak, Rishabh Jha
 @version CS56 W14 02/28/2014
@@ -15,401 +15,440 @@ Cryptography GUI only main method
 **/
 
 public class CryptographyGUI{
-    JFrame frame;
-    JTextField textField;
-    JPanel panel;
-    JPanel encryptedPanel;
-    JLabel encryptedLabel;
-
-    /**
-       The encrypt function receives an array of integers and transforms it into a long value.
-       @return a long with the resulting value
-       @param numlist an int[] (list on integers) that gets iterated through throughout the function, the integers must be greater than or equal to 1 and less than or equal to 1000, and the length of the list must be greater than or equal to 2 and less than or equal to 50.
-     */
+    EncryptMethods encryptMethods = new EncryptMethods();				// instance of encryptMethods to let us call them
+    UserRead userRead = new UserRead();
     
-	public long encrypt1(int[] numList) {
-	    long totalCheck = 0;
-	    long total = 1;
-	    
-	    for (int r=0; r < numList.length; r++){
-		if (numList[r] < 1 || numList[r] > 1000){
-		    System.out.println("Number Error; Integer x must follow: 1 <= x <= 1000");
-		    return totalCheck;
-		}
-	    }
-	    
-	    if (numList.length > 50 || numList.length < 2){
-		System.out.println("Number List Error; List length must be between 2 and 50 inclusive");
-		return totalCheck;
-	    }
-	    
-	    for (int i=0; i < numList.length; i++){
-		numList[i]++;
-		total = 1;
-		
-		for (int t=0; t < numList.length; t++){
-		    total = total * numList[t];
-		if (total > totalCheck){
-		    totalCheck = total;
-		}
-		}
-		numList[i]--;
-	    }
-	    
-	    return totalCheck;
-	}
-	    
+    JFrame frame = new JFrame();										// main window
+    JTextField textField = new JTextField(20);							// textfield to enter numbers in
+    JPanel panel = new JPanel();;						        		// panel to hold our first screen organized together
+    JPanel encryptedNumberPanel = new JPanel();					        // panel to hold our second screen organized together
+    JLabel encryptedNumberLabel = new JLabel("");				        // label that holds our encrypted number
+    JButton backButton = new JButton("Back");							// button for the user to return to the main screen
+    JPanel backButtonPanel = new JPanel();
+    JButton encryptButton = new JButton("Encrypt");				        // button on second screen to submit
+    
+    JPanel title = new JPanel();											
+    JLabel pageTitle = new JLabel("Choose an encryption method");		
+    JPanel length = new JPanel();						        		// string on second screen telling us length restrictions
+    JLabel lengthRestriction = new JLabel();
+    JPanel number = new JPanel();								        // string on second screen telling us numbers we can input
+    JLabel numberRestriction = new JLabel();
+    
+    // buttons on the initial screen for our 3 methods
+    JButton button1 = new JButton("Method 1");
+    JButton button2 = new JButton("Method 2");
+    JButton button3 = new JButton("Method 3");
+    
+    JPanel panel1 = new JPanel();
+    JPanel panel2 = new JPanel();
+    JPanel panel3 = new JPanel();
+    
+    //buttons and panels for our "numpad" configuration
+    JPanel numberInputterPanel = new JPanel(); 	
+
+    JButton numpad1 = new JButton("1");
+    JButton numpad2 = new JButton("2");
+    JButton numpad3 = new JButton("3");
+    JButton numpad4 = new JButton("4");
+    JButton numpad5 = new JButton("5");
+    JButton numpad6 = new JButton("6");
+    JButton numpad7 = new JButton("7");
+    JButton numpad8 = new JButton("8");
+    JButton numpad9 = new JButton("9");
+    JButton numpadComma = new JButton(", ");
+    JButton numpad0 = new JButton("0");
+    JButton numpad_ = new JButton("  ");
+
+    JPanel numpad147Comma = new JPanel();
+    JPanel numpad2580 = new JPanel();
+    JPanel numpad369_ = new JPanel();
 
 
-    /**
-       The encrypt function receives an array of integers and transforms it into a long value.
-       @return a long with the resulting value
-       @param numlist an int[] (list on integers) that gets iterated through throughout the function, the integers must be greater than or equal to -50 and less than or equal to 50, and the length of the list must be greater than or equal to 2 and less than or equal to 10.
-     */
-	
-	public long encrypt2(int[] numList){
-	    long totalCheck = 0;
-	    long total = 1;
-	    
-	    for (int r=0; r < numList.length; r++){
-		if (numList[r] < -50 || numList[r] > 50){
-		    System.out.println("Number Error; Integer x must follow: -50 <= x <= 50");
-		    return 0;
-		}
-	    }
-	    
-	    if (numList.length > 10){
-		System.out.println("Number List Error; List length must be less than 10 inclusive");
-		return 0;
-	    }
-	    
-	    
-
-	    for (int i = 0; i < numList.length; i++){
-		numList[i]++;
-		total *= numList[i];
-		numList[i]--;
-	    }
-
-	    return total;
-	    
-	}
-
-    /**
-       The encrypt function receives an array of integers and transforms it into a long value.
-       @return a long with the resulting value
-       @param numlist an int[] (list on integers) that gets iterated through throughout the function, the integers must be greater than or equal to -1000 and less than or equal to 1000, and the length of the list must be greater than or equal to 2 and less than or equal to 10.
-     */
-	public long encrypt3(int[] numList){
-	    long totalCheck = 0;
-	    long total = 1;
-
-	    for (int r=0; r < numList.length; r++){
-		if (numList[r] < 1 || numList[r] > 1000){
-		    System.out.println("Number Error; Integer x must follow: -1000 <= x <= 1000");
-		    return 0;
-	    }
-	    }
-	    
-	    if (numList.length > 10){
-		System.out.println("Number List Error; List length must be less than 10 inclusive");
-		return 0;
-	    }
-	    
-	    for (int i=0; i < numList.length; i++){
-		if (i%2 == 0) {
-		totalCheck += (numList[i] + i*i);
-		}
-		else {
-		    totalCheck -= (numList[i] + i*i);
-		}
-	    }
-	    
-	    return totalCheck;
-	}
-
-
-
-
-
-
-
-
-
-
-    //all of our inner classes
+    //our initial screen button listeners
 
     class Method1Listener implements ActionListener{
-	public void actionPerformed(ActionEvent event){
+		public void actionPerformed(ActionEvent event){
 	    
-	    panel.removeAll();
-	    panel.setLayout(new BoxLayout(panel,BoxLayout.Y_AXIS));
+		    panel.removeAll();
+		    panel.setLayout(new BoxLayout(panel,BoxLayout.Y_AXIS));
 
-	    JButton encrypt = new JButton("Encrypt");
-	    encrypt.addActionListener(new Encrypt1Listener());
-
-	    JPanel panel1 = new JPanel();
-	    panel1.add(textField);
-
-	    JPanel panel2 = new JPanel();
-	    panel2.add(encrypt);
-
-	    JPanel title = new JPanel();
-	    JLabel pageTitle = new JLabel("Input a list of integers to encrypt (separated by comma's)");
-	    title.add(pageTitle);
-
-	    JPanel length = new JPanel();
-	    JLabel lengthRestriction = new JLabel("Length of list between 2 and 50");
-	    length.add(lengthRestriction);
-
-	    panel.add(pageTitle);
-	    panel.add(lengthRestriction);
-	    panel.add(panel1);
-	    panel.add(panel2);
-	    panel.add(encryptedPanel);
-
-	    frame.getContentPane().removeAll();
-	    frame.getContentPane().add(panel);
-
-	    frame.invalidate();
-	    frame.validate();
-	}	
-    }//end of crypt 1 inner class
-
+		    encryptButton = new JButton("Encrypt");
+		    encryptButton.addActionListener(new Encrypt1Listener());
+		    
+		    textField.setText("");
+		    panel1.removeAll();
+		    panel1.add(textField);
+		    
+		    panel2.removeAll();
+		    panel2.add(encryptButton);
+		    
+		    pageTitle.setText("Input a list of integers to encrypt (separated by comma's with no spaces)");
+		    title.add(pageTitle);
+		    
+		    lengthRestriction.setText("Length of list between 2 and 50 inclusive");
+		    length.add(lengthRestriction);
+		    
+		    numberRestriction.setText("Numbers must be between 1 and 1000 inclusive");
+		    number.add(numberRestriction);
+		    
+		    encryptedNumberLabel.setText("");
+		    
+		    panel.add(title);
+		    panel.add(length);
+		    panel.add(number);
+		    panel.add(panel1);
+		    panel.add(panel2);
+		    panel.add(encryptedNumberPanel);
+		    panel.add(numberInputterPanel);
+		    panel.add(backButtonPanel);
+		    
+		    numberInputterPanel.setVisible(true);
+		    
+		    frame.repaint();
+		    frame.getContentPane().add(panel);
+		    
+		    frame.invalidate();
+		    frame.validate();
+		}	
+    }//end of first method listener inner class
+    
     class Method2Listener implements ActionListener{
-	public void actionPerformed(ActionEvent event){
-	    
-	    panel.removeAll();
-	    panel.setLayout(new BoxLayout(panel,BoxLayout.Y_AXIS));
-
-	    JButton encrypt = new JButton("Encrypt");
-	    encrypt.addActionListener(new Encrypt2Listener());
-
-	    JPanel panel1 = new JPanel();
-	    panel1.add(textField);
-
-	    JPanel panel2 = new JPanel();
-	    panel2.add(encrypt);
-
-	    JPanel title = new JPanel();
-	    JLabel pageTitle = new JLabel("Input a list of integers to encrypt (separated by comma's)");
-	    title.add(pageTitle);
-
-	    JPanel length = new JPanel();
-	    JLabel lengthRestriction = new JLabel("Length of list between 2 and 50");
-	    length.add(lengthRestriction);
-
-	    panel.add(pageTitle);
-	    panel.add(lengthRestriction);
-	    panel.add(panel1);
-	    panel.add(panel2);
-	    panel.add(encryptedPanel);
-	    
-	    frame.getContentPane().removeAll();
-	    frame.getContentPane().add(panel);
-
-	    frame.invalidate();
-	    frame.validate();
-	}
-    }//end of cryptography2 inner class  
-
+		public void actionPerformed(ActionEvent event){
+		    
+		    panel.removeAll();
+		    panel.setLayout(new BoxLayout(panel,BoxLayout.Y_AXIS));
+		    
+		    encryptButton = new JButton("Encrypt");
+		    encryptButton.addActionListener(new Encrypt2Listener());
+		    
+		    textField.setText("");
+		    panel1.removeAll();
+		    panel1.add(textField);
+		    
+		    panel2.removeAll();
+		    panel2.add(encryptButton);
+		    
+		    pageTitle.setText("Input a list of integers to encrypt (separated by comma's with no spaces)");
+		    title.add(pageTitle);
+		    
+		    lengthRestriction.setText("Length of list between 2 and 10 inclusive");
+		    length.add(lengthRestriction);
+		    
+		    numberRestriction.setText("Numbers must be between -50 and 50 inclusive");
+		    number.add(numberRestriction);
+		    
+		    encryptedNumberLabel.setText("");
+		    
+		    panel.add(title);
+		    panel.add(length);
+		    panel.add(number);
+		    panel.add(panel1);
+		    panel.add(panel2);
+		    panel.add(encryptedNumberPanel);
+		    panel.add(numberInputterPanel);
+		    panel.add(backButtonPanel);
+		    
+		    frame.repaint();
+		    frame.getContentPane().add(panel);
+		    
+		    frame.invalidate();
+		    frame.validate();
+		}
+    }//end of second method listener inner class  
+    
     class Method3Listener implements ActionListener{
-	public void actionPerformed(ActionEvent event){
-	    
-	    panel.removeAll();
-	    panel.setLayout(new BoxLayout(panel,BoxLayout.Y_AXIS));
+		public void actionPerformed(ActionEvent event){
 
-	    JButton encrypt = new JButton("Encrypt");
-	    encrypt.addActionListener(new Encrypt3Listener());
-	    
-	    JPanel panel1 = new JPanel();
-	    panel1.add(textField);
+		    panel.removeAll();
+		    panel.setLayout(new BoxLayout(panel,BoxLayout.Y_AXIS));
 
-	    JPanel panel2 = new JPanel();
-	    panel2.add(encrypt);
+		    encryptButton = new JButton("Encrypt");		    
+		    encryptButton.addActionListener(new Encrypt3Listener());
+		    
+		    textField.setText("");
+		    panel1.removeAll();
+		    panel1.add(textField);
+		    
+		    panel2.removeAll();
+		    panel2.add(encryptButton);
+		    
+		    pageTitle.setText("Input a list of integers to encrypt (separated by comma's with no spaces)");
+		    title.add(pageTitle);
+		    
+		    lengthRestriction.setText("Length of list between 2 and 10 inclusive");
+		    length.add(lengthRestriction);
 
-	    JPanel title = new JPanel();
-	    JLabel pageTitle = new JLabel("Input a list of integers to encrypt (separated by comma's)");
-	    title.add(pageTitle);
+		    numberRestriction.setText("Numbers must be between -1000 and 1000 inclusive");
+		    number.add(numberRestriction);
+		    
+		    encryptedNumberLabel.setText("");
 
-	    JPanel length = new JPanel();
-	    JLabel lengthRestriction = new JLabel("Length of list between 2 and 50");
-	    length.add(lengthRestriction);
+		    panel.add(title);
+		    panel.add(length);
+		    panel.add(number);
+		    panel.add(panel1);
+		    panel.add(panel2);
+		    panel.add(encryptedNumberPanel);
+		    panel.add(numberInputterPanel);
+		    panel.add(backButtonPanel);
+		    
+		    frame.repaint();
+		    frame.getContentPane().add(panel);
+		    
+		    frame.invalidate();
+		    frame.validate();
+		    
+		}
+    }//end of third method listener inner class
 
-	    panel.add(pageTitle);
-	    panel.add(lengthRestriction);
-	    panel.add(panel1);
-	    panel.add(panel2);
-	    panel.add(encryptedPanel);
-
-	    frame.getContentPane().removeAll();
-	    frame.getContentPane().add(panel);
-
-	    frame.invalidate();
-	    frame.validate();
-
-
-	}
-    }//end of cryptography3 inner class
-
-
-
-    //listeners for our second screen
-
+    
+    //listeners for our second screen   
     class Encrypt1Listener implements ActionListener{
-	public void actionPerformed(ActionEvent event){
-	    try{
-		String input = textField.getText();
-		int[] intArray = stringToIntArray(input);
-		long encryptedValue = encrypt1(intArray);
-
-		encryptedLabel.setText(Long.toString(encryptedValue));
-		encryptedPanel.add(encryptedLabel);
-
-		panel.add(encryptedPanel);
-
-		frame.invalidate();
-		frame.validate();
-	    }
-	    catch (NumberFormatException ex) {
-		System.out.println("Error!");
-	    }
-	}
+		public void actionPerformed(ActionEvent event){
+		    encryptedNumberPanel.setVisible(true);
+		    	try{
+			    String input = textField.getText();
+			    int[] intArray = userRead.stringToIntArray(input);
+			    long encryptedValue = encryptMethods.encrypt1(intArray);
+			    
+			    encryptedNumberLabel.setText(Long.toString(encryptedValue));
+			    encryptedNumberPanel.add(encryptedNumberLabel);
+			    
+			    frame.invalidate();
+			    frame.validate();
+			}
+			catch (NumberFormatException ex) {//hard coded to print out error if error
+			    encryptedNumberLabel.setText("Error! Please check your input and try again.");
+			    encryptedNumberPanel.add(encryptedNumberLabel);
+			    
+			    frame.invalidate();
+			    frame.validate();
+			}
+		}
     }// end of Encrypt1Listener
     
     class Encrypt2Listener implements ActionListener{
-	public void actionPerformed(ActionEvent event){
-	    try{
-		String input = textField.getText();
-		int[] intArray = stringToIntArray(input);
-		long encryptedValue = encrypt2(intArray);
-
-		encryptedLabel.setText(Long.toString(encryptedValue));
-		encryptedPanel.add(encryptedLabel);
-		
-		panel.add(encryptedPanel);
-
-		frame.invalidate();
-		frame.validate();
-	    }
-	    catch (NumberFormatException ex) {
-		System.out.println("Error!");
-	    }   
+		public void actionPerformed(ActionEvent event){
+		    encryptedNumberPanel.setVisible(true);
+		    try{
+			String input = textField.getText();
+			int[] intArray = userRead.stringToIntArray(input);
+			long encryptedValue = encryptMethods.encrypt2(intArray);
+			
+			encryptedNumberLabel.setText(Long.toString(encryptedValue));
+			encryptedNumberPanel.add(encryptedNumberLabel);
+			
+			frame.invalidate();
+			frame.validate();
+		    }
+		    catch (NumberFormatException ex) {//hard coded to print out error if error
+		    	encryptedNumberLabel.setText("Error! Please check your input and try again.");
+		    	encryptedNumberPanel.add(encryptedNumberLabel);
+			
+			frame.invalidate();
+			frame.validate();
+		    }   
      	}	
     }// end of Encrypt2Listener
-
- class Encrypt3Listener implements ActionListener{
-	public void actionPerformed(ActionEvent event){
-	    try{
-		String input = textField.getText();
-		int[] intArray = stringToIntArray(input);
-		long encryptedValue = encrypt3(intArray);
-
-		encryptedLabel.setText(Long.toString(encryptedValue));
-		encryptedPanel.add(encryptedLabel);
-
-		panel.add(encryptedPanel);
-
-		frame.invalidate();
-		frame.validate();
-	    }
-	    catch (NumberFormatException ex) {
-		System.out.println("Error!");
-	    }	    
+    
+    class Encrypt3Listener implements ActionListener{
+		public void actionPerformed(ActionEvent event){
+		    encryptedNumberPanel.setVisible(true);
+		    try{
+			String input = textField.getText();
+			int[] intArray = userRead.stringToIntArray(input);
+			long encryptedValue = encryptMethods.encrypt3(intArray);
+			
+			encryptedNumberLabel.setText(Long.toString(encryptedValue));
+			encryptedNumberPanel.add(encryptedNumberLabel);
+			
+			frame.invalidate();
+			frame.validate();
+		    }
+		    catch (NumberFormatException ex) {//hard coded to print out error  if error
+		    	encryptedNumberLabel.setText("Error! Please check your input and try again.");
+		    	encryptedNumberPanel.add(encryptedNumberLabel);
+			
+			frame.invalidate();
+			frame.validate();
+		    }	    
      	}	
     }// end of Encrypt3Listener
+    
+       
+    class numpad1Listener implements ActionListener{
+		public void actionPerformed(ActionEvent event){
+	    	textField.setText(textField.getText()+"1");
+		}
+    }
+    
+    class numpad2Listener implements ActionListener{
+		public void actionPerformed(ActionEvent event){
+		    textField.setText(textField.getText()+"2");
+		}
+    }
+    
+    class numpad3Listener implements ActionListener{
+		public void actionPerformed(ActionEvent event){
+		    textField.setText(textField.getText()+"3");
+		}
+    }
+    
+    class numpad4Listener implements ActionListener{
+		public void actionPerformed(ActionEvent event){
+		    textField.setText(textField.getText()+"4");
+		}
+    }
+    
+    class numpad5Listener implements ActionListener{
+		public void actionPerformed(ActionEvent event){
+		    textField.setText(textField.getText()+"5");
+		}
+    }
+    
+    class numpad6Listener implements ActionListener{
+		public void actionPerformed(ActionEvent event){
+		    textField.setText(textField.getText()+"6");
+		}
+    }
+    
+    class numpad7Listener implements ActionListener{
+		public void actionPerformed(ActionEvent event){
+		    textField.setText(textField.getText()+"7");
+		}
+    }
+    
+    class numpad8Listener implements ActionListener{
+		public void actionPerformed(ActionEvent event){
+		    textField.setText(textField.getText()+"8");
+		}
+    }
+    
+    class numpad9Listener implements ActionListener{
+		public void actionPerformed(ActionEvent event){
+		    textField.setText(textField.getText()+"9");
+		}
+    }
+    
+    class numpad0Listener implements ActionListener{
+		public void actionPerformed(ActionEvent event){
+		    textField.setText(textField.getText()+"0");
+		}
+    }
 
+    class numpadCommaListener implements ActionListener{
+		public void actionPerformed(ActionEvent event){
+			textField.setText(textField.getText()+",");
+		}
+    }
+    
+    
+    // calls our remake of the initial screen when pressed
+    class backButtonListener implements ActionListener{
+		public void actionPerformed(ActionEvent event){
+		    initialization();
+		    
+		}
+    }
+    
+    // remakes the initial screen for our back button
+    public void initialization(){
+	
+		frame.repaint();
 
-
-
-
-    //reads input and puts it into an array to intput into encrypt methods
-    public int[] stringToIntArray(String input){
-	System.out.println(input);
-
-	String[] StringArray = input.split(",");
-	for(String intString:StringArray)
-	    {
-		System.out.println(intString);
-	    }
-
-	int[] intArray = new int[StringArray.length];
-
-	int i = 0;
-	for(String intString:StringArray)
-	    {
-		System.out.println(intString);
-		 int x = Integer.parseInt(intString);
-		 intArray[i] = x;
-		 i++;
-	    }
-	return intArray;
-    }// end of stringToIntArray
+		pageTitle.setText("Choose an encryption method");
+		title.removeAll();
+		title.add(pageTitle);
 		
-	    
-	
-	
+		button1.addActionListener(new Method1Listener());
+		button2.addActionListener(new Method2Listener());
+		button3.addActionListener(new Method3Listener());
+		
+		panel1.removeAll();
+		panel2.removeAll();
+		panel3.removeAll();
+		
+		panel1.add(button1);
+		panel2.add(button2);
+		panel3.add(button3);
+			
+		panel.removeAll();
+		panel.setLayout(new BoxLayout(panel,BoxLayout.Y_AXIS));
+			
+		panel.add(title);
+		panel.add(panel1);
+		panel.add(panel2);
+		panel.add(panel3);
 
-    //go() makes our initial GUI while main calls go()
+		frame.getContentPane().add(panel);
+		frame.invalidate();
+		frame.validate();
+
+	}
+    
+    // our first screen being made and setting a few things up for later
+    public void initialSetup(){
+		encryptedNumberPanel.setVisible(false);
+
+		backButton.addActionListener(new backButtonListener());
+		backButtonPanel.add(backButton);
+
+		title.add(pageTitle);
+
+		//Linking the buttons to action listeners
+
+		numpad1.addActionListener(new numpad1Listener());
+		numpad2.addActionListener(new numpad2Listener());
+		numpad3.addActionListener(new numpad3Listener());
+		numpad4.addActionListener(new numpad4Listener());
+		numpad5.addActionListener(new numpad5Listener());
+		numpad6.addActionListener(new numpad6Listener());
+		numpad7.addActionListener(new numpad7Listener());
+		numpad8.addActionListener(new numpad8Listener());
+		numpad9.addActionListener(new numpad9Listener());
+		numpad0.addActionListener(new numpad0Listener());
+		numpadComma.addActionListener(new numpadCommaListener());
+
+		//placing the buttons into a "numpad" kind of format
+		numberInputterPanel.setLayout(new BoxLayout(numberInputterPanel,BoxLayout.X_AXIS));
+		numpad147Comma.setLayout(new BoxLayout(numpad147Comma,BoxLayout.Y_AXIS));
+		numpad2580.setLayout(new BoxLayout(numpad2580,BoxLayout.Y_AXIS));
+		numpad369_.setLayout(new BoxLayout(numpad369_,BoxLayout.Y_AXIS));
+
+		numpad147Comma.add(numpad1);
+		numpad147Comma.add(numpad4);
+		numpad147Comma.add(numpad7);
+		numpad147Comma.add(numpadComma);
+
+		numpad2580.add(numpad2);
+		numpad2580.add(numpad5);
+		numpad2580.add(numpad8);
+		numpad2580.add(numpad0);
+
+		numpad369_.add(numpad3);
+		numpad369_.add(numpad6);
+		numpad369_.add(numpad9);
+		numpad369_.add(numpad_);
+
+		numberInputterPanel.add(numpad147Comma);
+		numberInputterPanel.add(numpad2580);
+		numberInputterPanel.add(numpad369_);
+
+
+		initialization();
+
+		frame.setSize(720,480);
+		frame.setTitle("Encryption");
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setVisible(true);
+
+	}
+
 
     public static void main(String[] args){
-	CryptographyGUI gui = new CryptographyGUI();
-	gui.go();
+		CryptographyGUI gui = new CryptographyGUI();
+		gui.initialSetup();
 
     }//end of main
-
-
-
-    public void go(){
-	frame = new JFrame();
-	panel = new JPanel();
-
-	//for later use
-	textField = new JTextField(20);
-	encryptedPanel = new JPanel();
-	encryptedLabel = new JLabel();
-
-	frame.setSize(640,480);
-	frame.setTitle("Encryption");
-	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-	JPanel title = new JPanel();
-	JLabel pageTitle = new JLabel("Choose an encryption method");
-	title.add(pageTitle);
-	
-	JButton button1 = new JButton("Method 1");
-	button1.addActionListener(new Method1Listener());
-
-	JButton button2 = new JButton("Method 2");
-	button2.addActionListener(new Method2Listener());
-	
-	JButton button3 = new JButton("Method 3");
-	button3.addActionListener(new Method3Listener());
-	
-	JPanel panel1 = new JPanel();
-	JPanel panel2 = new JPanel();
-	JPanel panel3 = new JPanel();
-	
-	panel1.add(button1);
-	panel2.add(button2);
-	panel3.add(button3);
-	
-	panel.setLayout(new BoxLayout(panel,BoxLayout.Y_AXIS));
-	
-	panel.add(title);
-	panel.add(panel1);
-	panel.add(panel2);
-	panel.add(panel3);
-	
-	frame.getContentPane().add(panel);
-
-
-	frame.setVisible(true);
-	}//end of go
-
-
-
-
-
 
 }//end of class
