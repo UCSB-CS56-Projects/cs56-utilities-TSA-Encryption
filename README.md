@@ -5,6 +5,12 @@ This is a encryptor application that currently only takes in arrays of integers.
 ![](http://i.imgur.com/DxDBcAr.png)
 ![](http://i.imgur.com/9viUiH2.png)
 
+project history
+===============
+```
+ W14 | bronhuston 4pm | rkjha7, xgmak94 | TopCoder Security Agency (TSA, established today) has just invented a new encryption system! This encryption system takes as its input a list of numbers to encrypt. 
+```
+
 ## Documentation
 
 * The code for reading in the file is located in the `UserRead` class which currently holds only one method that reads the input into an integer array, as shown below.
